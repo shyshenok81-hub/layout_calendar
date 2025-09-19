@@ -31,7 +31,7 @@ body {
   flex-wrap: wrap;
   gap: $gap;
 
-  &__days {
+  &__day {
     width: $days-width;
     height: $days-height;
     padding: $day-padding;
@@ -41,6 +41,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     transition:
       transform 0.5s,
       background-color 0.5s;
@@ -65,18 +66,17 @@ body {
       transform: translateY(-20px);
       background-color: #ffbfcb;
       transition-duration: 0.5s;
-      cursor: pointer;
     }
   }
 
   @each $day, $index in $days {
-    &--start-day--#{$day} > :first-child {
+    &--start-day-#{$day} > :first-child {
       margin-left: #{(($days-width + $gap) * $index)};
     }
   }
 
   @for $index from 28 through 31 {
-    &--month-length--#{$index} :nth-child(n + #{$index + 1}) {
+    &--month-length-#{$index} :nth-child(n + #{$index + 1}) {
       display: none;
     }
   }
